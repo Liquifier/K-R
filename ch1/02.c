@@ -12,5 +12,9 @@ main()
 	printf("hello, world\v\n");
 	printf("hello, world\?\n");
 	printf("\'hello\', world\n");
+	printf("hello\\, world\n");
+	printf("hello, \"world\"\n");
+	printf("hello, \133 world\n");
+	printf("hello, \x45 world\n");
  }
 	
