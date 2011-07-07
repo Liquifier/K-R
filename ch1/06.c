@@ -9,6 +9,6 @@ main()
 	
 	c = getchar();
 	while (c = getchar() != EOF) 
-		putchar(c);
+		printf("%d\n", c);
 	
 }
