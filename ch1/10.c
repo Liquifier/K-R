@@ -24,7 +24,7 @@ main()
 			putchar('\\');
 			d = 1;
 			}
-		if (d == '0')
-			putchar('c');
+		if (d == 0)
+			putchar(c);
 		}
 }
