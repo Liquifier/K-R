@@ -1,0 +1,10 @@
+Exercise 1-11. How would you test the word count program? What kinds of input are most 
+likely to uncover bugs if there are any?  
+
+Compile the source code after fixing the typo in:
+ if (c == ' ' || c == '\n' || c = '\t')
+ 
+ and then try various inputs.
+ 
+ Inputs like tab and then EOF (^D in Linux, ^Z in Visual Studio) will cause the program
+ to incorrectly count a word and two characters (at least in Visual Studio is does).
