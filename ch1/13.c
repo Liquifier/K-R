@@ -17,7 +17,7 @@ main()
     for (i = 0; i < 10; ++i) 
 		nchar[i] = 0; 
 	   
-	while ((c = getchar()) != EOF)	
+	while ((c = getchar()) != EOF){
 	/* count the number of words of length i */
 	if (state == IN && c == ' ' || c == '\n' || c == '\t'){
 		if (nw < 9){
@@ -35,10 +35,11 @@ main()
 	/* count the length of each word */
 	else if (state == IN)
 		++nw;
-	if (state == OUT && c != ' ' && c != '/n' && c != '\t'){
+	if (state == OUT && c != ' ' && c != '\n' && c != '\t'){
 		state = IN;
 		++nw;
 			
+	}
 	}
 		
 		
@@ -62,3 +63,4 @@ main()
 	}
        
 }
+/* I don't need a vertical histogram...right? */
