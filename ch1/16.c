@@ -1,8 +1,7 @@
 /* Revise the main routine of the longestline program so it will
 	correctly print the length of arbitrary long input lines
 	and as mush as possible of the text. */
-/* so we need to get each line counted and test that, despite
-	the maxline limit, that it is indeed the longest line*/
+
 #include <stdio.h> 
 #define MAXLINE 5   /* maximum input line length */ 
  
@@ -22,21 +21,18 @@ main()
 	max = 0; 
 	
 	while ((len = getline(line, MAXLINE)) > 0){
-		while (c=getchar()!=EOF && c!='\n')
-			++nc;
-		
-		if (nc > max) {
-			max = nc; 
+		if (len > max) {
+			max = len; 
 			copy(longest, line); 
-		} 
-		nc = 0;
+		}
 	}
-	if (max > 0)  /* there was a line */ 
-		printf("The length of the longest line is %d.\n", (max-1));
+	if (max > 0){  /* there was a line */ 
+		printf("The length of the longest line is %d.\n", max);
 		printf("%s\n", longest); 
+	}
 		
 	return 0; 
-} 
+}
  
 /* getline:  read a line into s, return length  */ 
 int getline(char s[],int lim)
@@ -48,8 +44,11 @@ int getline(char s[],int lim)
 	if (c == '\n') { 
 		s[i] = c; 
 		++i; 
-	} 
+	}
 	s[i] = '\0'; 
+	while ( (c = getchar()) != EOF && c != '\n')
+		++i;
+		
 	return i; 
 } 
  
