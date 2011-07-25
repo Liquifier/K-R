@@ -42,6 +42,7 @@ int getline(char s[],int lim)
 			}
 		}	
 	}
+	--i;
 	if (c == '\n') { 
 		s[i] = c; 
 		++i; 
