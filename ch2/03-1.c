@@ -14,20 +14,21 @@ unsigned int htoi(char s[])
 	if (s[i] == '0' && (s[i+1] == 'X' || s[i+1] == 'x'))
 		i+=2;
 	
-	while (s[i] != '\0') {
-		if((unsigned char)isdigit(s[i])) {
-			n = n * 16 + s[i] - '0';
+	if (isxdigit(s[i])){
+		while (s[i] != '\0') {
+			if((unsigned char)isdigit(s[i])) {
+				n = n * 16 + s[i] - '0';
+			}
+			else if((unsigned char)isupper(s[i])) {
+				n = n * 16 + s[i] - 'A' +10;
+			}
+			else if((unsigned char)islower(s[i])) {
+				n = n * 16 + s[i] - 'a' +10;
+			}	
+			i++;
 		}
-		else if((unsigned char)isupper(s[i])) {
-			n = n * 16 + s[i] - 'A' +10;
-		}
-		else if((unsigned char)islower(s[i])) {
-			n = n * 16 + s[i] - 'a' +10;
-		}
-		else return 0;
-		
-		i++;
 	}
+	else return 0;
 	return n;
 }
  
