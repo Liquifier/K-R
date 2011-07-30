@@ -7,7 +7,6 @@ characters from s2. */
 int any(char s1[], char s2[])
 {
 	int i, j;
-	int duplicate;
 	int firstlocation = -1;
 	
 	for (i = 0; firstlocation == -1 && s1[i] != '0'; i++) {
