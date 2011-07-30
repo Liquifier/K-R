@@ -9,20 +9,19 @@ unsigned int htoi(char s[])
 {
 	int i = 0;
 	unsigned int n = 0;
-	int digit, upper, lower;
 	
 	if (s[i] == '0' && (s[i+1] == 'X' || s[i+1] == 'x'))
 		i+=2;
 	
 	if (isxdigit(s[i])){
 		while (s[i] != '\0') {
-			if((unsigned char)isdigit(s[i])) {
+			if(isdigit(s[i])) {
 				n = n * 16 + s[i] - '0';
 			}
-			else if((unsigned char)isupper(s[i])) {
+			else if(isupper(s[i])) {
 				n = n * 16 + s[i] - 'A' +10;
 			}
-			else if((unsigned char)islower(s[i])) {
+			else if(islower(s[i])) {
 				n = n * 16 + s[i] - 'a' +10;
 			}	
 			i++;
